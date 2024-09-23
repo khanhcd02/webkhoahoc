@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>Login</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <link href="/login.css" rel="stylesheet" type="text/css">
+	</head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<body>
+		<div class="login">
+			<h1>Đăng nhập</h1>
+			<form action="/auth/login" method="post">
+				<label for="username">
+					<!-- font awesome icon -->
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="username" placeholder="Username" id="username" required>
+				<label for="password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="password" placeholder="Password" id="password"  maxlength="20" required>
+				<a style="text-decoration: none;margin-left: 250px;" href="/home">Quay lại trang chủ</a>
+				<input type="submit" id="btn" value="Đăng nhập">
+			</form>
+			<div class="or-container"><div class="line-separator"></div> <div class="or-label">or</div><div class="line-separator"></div></div>
+			<div style="text-align: center;margin-top: 10px;margin-bottom: 10px;vertical-align: middle;" class="col-md-12">
+				<a class="google-login-btn" href="/auth/google">
+				  <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Logo">
+				  Đăng nhập bằng Google
+				</a>
+			</div>
+			<div style="text-align: center;">Chưa có tài khoản? <a style="text-decoration: none;" href="/auth/register">Đăng ký ngay</a></div>
+		</div>
+	</body>
+	<!-- <script>
+		function setCookie(cname, cvalue, exdays) {
+			const d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			let expires = "expires="+ d.toUTCString();
+			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+		$('#btn').click(function(){
+			var username = $('#username').val()
+			var password = $('#password').val()
+
+			$.ajax({
+				url:'/auth/login',
+				type:'POST',
+				data: {
+					username: username,
+					password: password
+				}
+			}).then(data=>{
+				localStorage.setItem('token', data.token);
+				setCookie("token",data.token,1);
+				window.location.href = '/home/';
+			})
+			.catch(err=>{
+				console.log("err");
+			})
+
+		})
+
+	</script> -->
+</html>
